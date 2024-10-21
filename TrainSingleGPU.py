@@ -141,8 +141,10 @@ def main(args):
     start_time = time()
 
     logger.info(f"Training for {args.epochs} epochs...")
+    print(f"Training for {args.epochs} epochs...")
     for epoch in range(args.epochs):
         logger.info(f"Beginning epoch {epoch}...")
+        print(f"\nBeginning epoch {epoch + 1}/{args.epochs}...")
         for x, y in loader:
             x = x.to(device)
             y = y.to(device)
@@ -169,6 +171,7 @@ def main(args):
                 steps_per_sec = log_steps / (end_time - start_time)
                 avg_loss = running_loss / log_steps
                 logger.info(f"(step={train_steps:07d}) Train Loss: {avg_loss:.4f}, Train Steps/Sec: {steps_per_sec:.2f}")
+                print(f"(step={train_steps:07d}) Train Loss: {avg_loss:.4f}, Train Steps/Sec: {steps_per_sec:.2f}")
                 # Reset monitoring variables:
                 running_loss = 0
                 log_steps = 0
