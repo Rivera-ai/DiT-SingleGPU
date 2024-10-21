@@ -85,6 +85,12 @@ one node:
 torchrun --nnodes=1 --nproc_per_node=N train.py --model DiT-XL/2 --data-path /path/to/imagenet/train
 ```
 
+## And if you are going to train on a single GPU go to this file "TrainSingleGPU.py" and modify the argument of the folder where you have saved the images to train, and if you want the type of model, the batch size, always taking into account the VRAM of your graphics card.
+
+```bash
+python TrainSingleGPU.py
+```
+
 ### PyTorch Training Results
 
 We've trained DiT-XL/2 and DiT-B/4 models from scratch with the PyTorch training script
